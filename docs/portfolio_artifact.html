@@ -233,10 +233,10 @@ footer.end p{margin:0;color:var(--muted);font-size:14px}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 </style>
-
 <nav aria-label="Navigation principale">
   <a class="logo" href="#top"><span class="caps spin" aria-hidden="true"></span>FactuRoll</a>
   <div class="links">
+    <a class="opt" href="#marches">Marchés</a>
     <a class="opt" href="#flux">Flux</a>
     <a class="opt" href="#ia">Matching IA</a>
     <a class="opt" href="#archi">Architecture</a>
@@ -251,7 +251,7 @@ footer.end p{margin:0;color:var(--muted);font-size:14px}
   <div>
     <span class="eyebrow">Achats pharmaceutiques · SaaS</span>
     <h1>Le bon prix est déjà <em>dans le PDF.</em></h1>
-    <p class="lead">FactuRoll envoie les demandes d'offres, récupère les réponses des fournisseurs par email, lit les factures avec l'IA et classe les prix produit par produit. Plus de ressaisie.</p>
+    <p class="lead">FactuRoll repère les marchés publics qui vous concernent, envoie les demandes d'offres aux fournisseurs, lit leurs factures avec l'IA et classe les prix produit par produit. Plus de ressaisie.</p>
     <div class="cta">
       <a class="btn pri" href="#ia">Essayer le matching ↓</a>
       <a class="btn sec" href="#archi">Voir l'architecture</a>
@@ -278,10 +278,23 @@ footer.end p{margin:0;color:var(--muted);font-size:14px}
 
 <div class="ticker" aria-hidden="true">
   <div class="track">
-    <span>Demande d'offres</span><span>Email en masse</span><span>Réponse Gmail</span><span>OCR</span><span>Extraction GPT</span><span>Embeddings</span><span>Matching produit</span><span>Meilleur prix</span><span>Export Excel</span>
-    <span>Demande d'offres</span><span>Email en masse</span><span>Réponse Gmail</span><span>OCR</span><span>Extraction GPT</span><span>Embeddings</span><span>Matching produit</span><span>Meilleur prix</span><span>Export Excel</span>
+    <span>Veille des marchés</span><span>Appels d'offres</span><span>Demande d'offres</span><span>Email en masse</span><span>Réponse Gmail</span><span>OCR</span><span>Extraction GPT</span><span>Embeddings</span><span>Matching produit</span><span>Meilleur prix</span><span>Export Excel</span>
+    <span>Veille des marchés</span><span>Appels d'offres</span><span>Demande d'offres</span><span>Email en masse</span><span>Réponse Gmail</span><span>OCR</span><span>Extraction GPT</span><span>Embeddings</span><span>Matching produit</span><span>Meilleur prix</span><span>Export Excel</span>
   </div>
 </div>
+
+<section id="marches">
+  <div class="head reveal"><span class="eyebrow">Veille des marchés</span><h2>Seuls les appels d'offres qui vous correspondent remontent.</h2><p>Les avis d'appel d'offres publiés sur les plateformes sont lus par l'IA (texte, images et PDF). Chaque avis est comparé aux conditions de l'entreprise : secteur d'activité, capacité financière, lots éligibles. Réglez le plafond pour voir le tri.</p></div>
+  <div class="lab reveal">
+    <div class="panel slider">
+      <label for="cap">Plafond de capacité financière <output id="capOut" for="cap">27 000 000 DA</output></label>
+      <input id="cap" type="range" min="5000000" max="60000000" step="500000" value="27000000">
+      <div class="counts"><span class="pill"><b id="mOk">0</b>éligibles</span><span class="pill"><b id="mCap">0</b>hors plafond</span><span class="pill"><b id="mSec">0</b>hors secteur</span></div>
+      <p style="margin:0;color:var(--muted);font-size:14px">Conditions : secteur médical, paramédical ou pharmaceutique, au moins un lot éligible, chiffre d'affaires exigé sous le plafond. Avis fictifs pour l'exemple.</p>
+    </div>
+    <div class="rows" id="avis"></div>
+  </div>
+</section>
 
 <section id="flux">
   <div class="head reveal"><span class="eyebrow">Le parcours</span><h2>De la demande au meilleur prix, en cinq temps.</h2><p>Chaque campagne suit le même chemin. Les étapes pénibles, l'envoi en masse et la lecture des documents, tournent seules en arrière-plan.</p></div>
@@ -507,6 +520,36 @@ footer.end p{margin:0;color:var(--muted);font-size:14px}
     $('#cOk').textContent = ok; $('#cChk').textContent = chk; $('#cNo').textContent = no;
   }
   thr.addEventListener('input', upd); upd();
+
+  /* veille des marchés */
+  var A = [
+    {t:'Fourniture de médicaments et dispositifs médicaux', o:'CHU', sec:'Médical', amt:18000000, lots:3, okSec:true},
+    {t:'Équipements paramédicaux', o:'EPH', sec:'Paramédical', amt:9500000, lots:2, okSec:true},
+    {t:'Réactifs et consommables de laboratoire', o:'EPH', sec:'Médical', amt:26500000, lots:4, okSec:true},
+    {t:'Produits pharmaceutiques hospitaliers', o:'PCH', sec:'Pharmaceutique', amt:41000000, lots:5, okSec:true},
+    {t:'Réfection de toiture et étanchéité', o:'APC', sec:'Bâtiment', amt:6000000, lots:1, okSec:false}
+  ];
+  var avisEl = $('#avis'), cap = $('#cap');
+  A.forEach(function(a){
+    var d = document.createElement('div'); d.className = 'row';
+    d.innerHTML = '<div><div class="raw"></div><div class="mt"></div><span class="badge"></span></div><div class="sc"></div>';
+    d.querySelector('.raw').textContent = a.o + ' · ' + a.sec + ' · ' + a.lots + (a.lots>1 ? ' lots' : ' lot');
+    d.querySelector('.mt').textContent = a.t;
+    d.querySelector('.sc').textContent = fmt(a.amt) + ' DA';
+    avisEl.appendChild(d); a.el = d;
+  });
+  function updAvis(){
+    var c = +cap.value, ok = 0, over = 0, out = 0;
+    $('#capOut').textContent = fmt(c) + ' DA';
+    A.forEach(function(a){
+      var st = !a.okSec ? 'sec' : (a.amt > c ? 'cap' : 'ok');
+      a.el.className = 'row ' + (st==='ok' ? 's-ok' : (st==='cap' ? 's-chk' : 's-no'));
+      a.el.querySelector('.badge').textContent = st==='ok' ? 'Éligible' : (st==='cap' ? 'Hors plafond' : 'Hors secteur');
+      if(st==='ok') ok++; else if(st==='cap') over++; else out++;
+    });
+    $('#mOk').textContent = ok; $('#mCap').textContent = over; $('#mSec').textContent = out;
+  }
+  cap.addEventListener('input', updAvis); updAvis();
 
   /* compteurs */
   var nums = document.querySelectorAll('.num b');
