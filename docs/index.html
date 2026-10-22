@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FactuRoll — Portfolio</title>
+<meta name="description" content="Plateforme SaaS d'achats pharmaceutiques : demandes d'offres, extraction IA des factures et comparaison des prix.">
+<style>
+  :root{
+    --bg:#0b1020; --surface:#131a30; --surface2:#1a2342; --text:#e8ecf8; --muted:#9aa6c7;
+    --accent:#4f8cff; --accent2:#22d3a6; --border:#243056;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f5f7fc; --surface:#fff; --surface2:#eef2fb; --text:#12182b; --muted:#56608a; --border:#dbe2f3; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  nav b{letter-spacing:.3px}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  header.hero{padding:88px 0 64px}
+  .tag{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid color-mix(in srgb,var(--accent2) 40%,transparent);padding:4px 12px;border-radius:99px;margin-bottom:20px}
+  h1{font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 18px}
+  h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:19px;color:var(--muted);max-width:680px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .stat b{display:block;font-size:28px;color:var(--accent)}
+  .stat small{color:var(--muted)}
+  section{padding:56px 0;border-top:1px solid var(--border)}
+  h2{font-size:28px;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 32px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+  .card h3{margin:0 0 8px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:14px;margin-bottom:12px}
+  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+  .step{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:16px;font-size:14px}
+  .step b{display:block;margin-bottom:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:14px}
+  .stack h3{font-size:15px;color:var(--accent2);margin:22px 0 10px;text-transform:uppercase;letter-spacing:.8px}
+  .stack h3:first-child{margin-top:0}
+  ul.clean{padding-left:20px;color:var(--muted)}
+  ul.clean li{margin:6px 0}
+  ul.clean b{color:var(--text)}
+  footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>FactuRoll</b><div><a href="#fonctions">Fonctions</a><a href="#flux">Flux</a><a href="#tech">Technique</a><a href="#archi">Architecture</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="tag">SaaS · Application desktop + API</span>
+  <h1>Comparer les offres fournisseurs, <span>sans ressaisir une seule facture.</span></h1>
+  <p class="lead">FactuRoll automatise les achats pharmaceutiques : envoi de demandes d'offres en masse, collecte des réponses par email, lecture des PDF par IA et classement des meilleurs prix par produit.</p>
+  <div class="stats">
+    <div class="stat"><b>~35 000</b><small>lignes de Python (API &amp; services)</small></div>
+    <div class="stat"><b>~20 000</b><small>lignes de Dart (écrans Flutter)</small></div>
+    <div class="stat"><b>30+</b><small>tables PostgreSQL</small></div>
+    <div class="stat"><b>3</b><small>moteurs IA combinés</small></div>
+  </div>
+</div></header>
+
+<section id="fonctions"><div class="wrap">
+  <h2>Ce que fait l'application</h2>
+  <p class="sub">Un seul outil pour tout le cycle : demander, recevoir, extraire, comparer.</p>
+  <div class="grid">
+    <div class="card"><h3>Campagnes de demandes d'offres</h3><p>Envoi d'emails personnalisés à des groupes de fournisseurs, avec modèles, pièces jointes et suivi par destinataire.</p></div>
+    <div class="card"><h3>Formulaire de réponse web</h3><p>Chaque email contient un lien unique vers un formulaire hébergé par l'API pour répondre sans compte.</p></div>
+    <div class="card"><h3>Synchronisation Gmail</h3><p>Connexion OAuth par utilisateur : les réponses et pièces jointes sont récupérées automatiquement.</p></div>
+    <div class="card"><h3>Extraction IA des documents</h3><p>Factures, offres et fiches techniques lues par Document AI, OCR vision et GPT, puis rattachées aux produits demandés.</p></div>
+    <div class="card"><h3>Meilleures offres</h3><p>Classement des prix par produit, analyse GPT, vérification manuelle des cas incertains et export Excel.</p></div>
+    <div class="card"><h3>Administration multi-utilisateurs</h3><p>Comptes, tenants, paramètres email (SMTP, SendGrid, SES) et pilotage de la synchro depuis l'interface.</p></div>
+  </div>
+</div></section>
+
+<section id="flux"><div class="wrap">
+  <h2>Du catalogue à la meilleure offre</h2>
+  <p class="sub">Le parcours d'une campagne, étape par étape.</p>
+  <div class="flow">
+    <div class="step"><span class="num">1</span><b>Préparer</b>Produits, fournisseurs, groupes, modèles</div>
+    <div class="step"><span class="num">2</span><b>Envoyer</b>File d'emails avec workers et anti-rebonds</div>
+    <div class="step"><span class="num">3</span><b>Recevoir</b>Formulaire web ou réponse Gmail + PDF</div>
+    <div class="step"><span class="num">4</span><b>Extraire</b>OCR, GPT et embeddings pour le matching</div>
+    <div class="step"><span class="num">5</span><b>Décider</b>Vérification, comparaison, export</div>
+  </div>
+</div></section>
+
+<section id="tech"><div class="wrap">
+  <h2>Stack technique</h2>
+  <p class="sub">Choisie pour être robuste en production sur un simple VPS.</p>
+  <div class="stack">
+    <h3>Backend</h3>
+    <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy 2</span><span class="chip">Alembic</span><span class="chip">PostgreSQL</span><span class="chip">JWT</span><span class="chip">Jinja2</span></div>
+    <h3>Intelligence artificielle</h3>
+    <div class="chips"><span class="chip">OpenAI GPT</span><span class="chip">Embeddings</span><span class="chip">OpenAI Vision OCR</span><span class="chip">Google Document AI</span><span class="chip">Lexique médical</span></div>
+    <h3>Client desktop</h3>
+    <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Provider</span><span class="chip">Inno Setup (installateur Windows)</span></div>
+    <h3>Intégrations &amp; déploiement</h3>
+    <div class="chips"><span class="chip">Gmail API (OAuth)</span><span class="chip">SMTP / SendGrid / SES</span><span class="chip">systemd</span><span class="chip">PowerShell</span><span class="chip">pytest</span></div>
+  </div>
+</div></section>
+
+<section id="archi"><div class="wrap">
+  <h2>Points d'ingénierie</h2>
+  <p class="sub">Ce qui rend le projet fiable au quotidien.</p>
+  <ul class="clean">
+    <li><b>Files d'attente et workers</b> : envoi d'emails et calcul d'embeddings asynchrones, avec watchdog qui remet en file les jobs bloqués.</li>
+    <li><b>Migrations strictes</b> : mode <code>alembic_strict</code> qui refuse de démarrer si la base n'est pas à jour.</li>
+    <li><b>Matching en plusieurs niveaux</b> : embeddings d'abord, GPT seulement dans la zone d'incertitude, pour maîtriser le coût.</li>
+    <li><b>Qualité de l'extraction</b> : scores de confiance, statut « à vérifier », repli sur un modèle plus fort et scripts d'évaluation par lots.</li>
+    <li><b>Observabilité des coûts IA</b> : journal d'usage OpenAI et cache des réponses.</li>
+    <li><b>Déploiement scripté</b> : synchronisation vers le VPS, unités systemd installées avec sauvegarde et rollback automatique.</li>
+    <li><b>Multi-utilisateurs</b> : un compte Gmail par utilisateur, isolation par tenant.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">FactuRoll · Projet réalisé par Chems Eddine Zaouali</div></footer>
+</body>
+</html>

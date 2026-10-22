@@ -1,0 +1,304 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "canonical": "ANALYSEUR HEMATOLOGIQUE MULTIPARAMETRIQUE",
+      "aliases": [
+        "analyseur hematologique multiparametrique",
+        "analyseur hematologie",
+        "automate hematologie"
+      ]
+    },
+    {
+      "canonical": "ANALYSEUR SEMI-AUTOMATIQUE DE COAGULATION",
+      "aliases": [
+        "analyseur coagulation",
+        "coagulation semi-automatique",
+        "automate coagulation"
+      ]
+    },
+    {
+      "canonical": "ANALYSEUR AUTOMATIQUE DE PH/GAZ DU SANG",
+      "aliases": [
+        "analyseur gaz du sang",
+        "analyseur ph gaz du sang",
+        "blood gas analyzer"
+      ]
+    },
+    {
+      "canonical": "IONOGRAMME ISE",
+      "aliases": [
+        "ionogramme",
+        "ionogramme ise",
+        "analyseur na k cl",
+        "dosage na k cl"
+      ]
+    },
+    {
+      "canonical": "ANALYSEUR D'HEMOGLOBINE GLYQUEE",
+      "aliases": [
+        "analyseur hemoglobine glyquee",
+        "analyseur hba1c",
+        "hemoglobine glyquee semi-automatique"
+      ]
+    },
+    {
+      "canonical": "SPECTROPHOTOMETRE",
+      "aliases": [
+        "spectrophotometre",
+        "spectrophotometry"
+      ]
+    },
+    {
+      "canonical": "ECHOGRAPHIE MAMMAIRE AUTOMATISEE 3D",
+      "aliases": [
+        "echographie mammaire 3d",
+        "echo mammaire 3d"
+      ]
+    },
+    {
+      "canonical": "SOLUTION IA POUR IRM AVEC ANTENNES",
+      "aliases": [
+        "solution intelligence artificielle pour irm",
+        "ia irm antennes"
+      ]
+    },
+    {
+      "canonical": "APPAREIL DE RADIOGRAPHIE DENTO-MAXILLO-FACIALE",
+      "aliases": [
+        "radiographie dento maxillo faciale",
+        "radio dento maxillo faciale"
+      ]
+    },
+    {
+      "canonical": "RESPIRATEUR D'ANESTHESIE AVEC MONITORAGE ET PERFUSION AMAGNETIQUE",
+      "aliases": [
+        "respirateur anesthesie monitorage perfusion amagnetique",
+        "respirateur d'anesthesie"
+      ]
+    },
+    {
+      "canonical": "MATERIEL DE CRYOTHERAPIE ET D'ABLATION PAR RADIOFREQUENCE",
+      "aliases": [
+        "cryotherapie ablation radiofrequence",
+        "materiel cryotherapie"
+      ]
+    },
+    {
+      "canonical": "APPAREIL D'ABLATION PAR MICRO-ONDES",
+      "aliases": [
+        "ablation micro ondes",
+        "ablation microwave"
+      ]
+    },
+    {
+      "canonical": "MATERIEL DE MACROBIOPSIE",
+      "aliases": [
+        "materiel macrobiopsie",
+        "macrobiopsie"
+      ]
+    },
+    {
+      "canonical": "MATERIEL DE LABORATOIRE",
+      "aliases": [
+        "equipement de laboratoire",
+        "materiel laboratoire"
+      ]
+    },
+    {
+      "canonical": "CONSOMMABLES DE BLOC OPERATOIRE",
+      "aliases": [
+        "consommables bloc operatoire",
+        "consommable bloc"
+      ]
+    },
+    {
+      "canonical": "CONSOMMABLES D'HEMODIALYSE",
+      "aliases": [
+        "consommables hemodialyse",
+        "consommable hemodialyse"
+      ]
+    },
+    {
+      "canonical": "CONSOMMABLES DE LABORATOIRE",
+      "aliases": [
+        "consommables laboratoire",
+        "consommable laboratoire"
+      ]
+    },
+    {
+      "canonical": "OBJET DE PANSEMENT",
+      "aliases": [
+        "objet de pansement",
+        "materiel de pansement"
+      ]
+    },
+    {
+      "canonical": "GAZ MEDICAUX OXYGENE LIQUIDE",
+      "aliases": [
+        "gaz medicaux",
+        "oxygene liquide"
+      ]
+    },
+    {
+      "canonical": "REACTIFS DE BIOCHIMIE ET HEMOBIOLOGIE",
+      "aliases": [
+        "reactifs biochimie",
+        "reactifs hemobiologie"
+      ]
+    },
+    {
+      "canonical": "REACTIFS D'HORMONOLOGIE",
+      "aliases": [
+        "reactifs hormonologie",
+        "consommable pts reactifs hormonologie"
+      ]
+    },
+    {
+      "canonical": "REACTIFS DE CYTOGENETIQUE ET GENOTYPAGE",
+      "aliases": [
+        "reactifs cytogenetique",
+        "reactifs genotypage"
+      ]
+    },
+    {
+      "canonical": "REACTIFS D'AUTOMATE COBAS 411 E",
+      "aliases": [
+        "reactifs cobas 411 e",
+        "cobas 411e reactifs"
+      ]
+    },
+    {
+      "canonical": "REACTIFS D'AUTO-IMMUNITE",
+      "aliases": [
+        "reactifs auto immunite",
+        "reactifs auto-immunite"
+      ]
+    },
+    {
+      "canonical": "REACTIFS DE QUANTIFICATION POUR PCR EN TEMPS REEL",
+      "aliases": [
+        "reactifs pcr temps reel",
+        "quantification pcr"
+      ]
+    },
+    {
+      "canonical": "REACTIFS POUR AUTOMATE PCR DIGITAL",
+      "aliases": [
+        "reactifs pcr digital",
+        "automate pcr digital"
+      ]
+    },
+    {
+      "canonical": "REACTIFS D'HEMOSTASE",
+      "aliases": [
+        "reactifs hemostase",
+        "hemostase automate"
+      ]
+    },
+    {
+      "canonical": "REACTIFS D'ELECTROPHORESE D'HEMOGLOBINE ET DE PROTEINE",
+      "aliases": [
+        "reactifs electrophorese hemoglobine",
+        "reactifs electrophorese proteine"
+      ]
+    },
+    {
+      "canonical": "REACTIFS POUR ELECTROPHORESE ET IMMUNOFIXATION",
+      "aliases": [
+        "electrophorese immunofixation",
+        "reactifs immunofixation"
+      ]
+    },
+    {
+      "canonical": "FAUTEUIL DENTAIRE AVEC STATION VISIO GRAPHIE",
+      "aliases": [
+        "fauteuil dentaire",
+        "fauteuil dentaire station visio graphie"
+      ]
+    },
+    {
+      "canonical": "RADIO DENTAIRE NUMERIQUE",
+      "aliases": [
+        "radio dentaire numerique",
+        "radiographie dentaire numerique"
+      ]
+    },
+    {
+      "canonical": "STATION DE RADIO VISIO GRAPHIE DENTAIRE",
+      "aliases": [
+        "station radio visio graphie dentaire",
+        "rvg dentaire"
+      ]
+    },
+    {
+      "canonical": "AUTOCLAVE HORIZONTALE DE STERILISATION",
+      "aliases": [
+        "autoclave horizontale",
+        "autoclave de sterilisation"
+      ]
+    },
+    {
+      "canonical": "AUTOCLAVE DE PAILLASSE",
+      "aliases": [
+        "autoclave de paillasse",
+        "autoclave 24l classe b",
+        "autoclave 250l"
+      ]
+    },
+    {
+      "canonical": "SOUDEUSE DE GAINE",
+      "aliases": [
+        "soudeuse de gaine",
+        "thermo soudeuse",
+        "thermosoudeuse"
+      ]
+    },
+    {
+      "canonical": "THERMO SOUDEUSE AVEC ACCESSOIRES",
+      "aliases": [
+        "thermo soudeuse avec accessoires",
+        "thermosoudeuse machine"
+      ]
+    },
+    {
+      "canonical": "LAVEUR DESINFECTEUR",
+      "aliases": [
+        "laveur desinfecteur",
+        "laveur disinfecteur"
+      ]
+    },
+    {
+      "canonical": "PANIER DE STERILISATION",
+      "aliases": [
+        "panier de sterilisation"
+      ]
+    },
+    {
+      "canonical": "PISTOLET DE RINCAGE",
+      "aliases": [
+        "pistolet de rincage"
+      ]
+    },
+    {
+      "canonical": "STERILISATEUR DE TABLE A VAPEUR D'EAU",
+      "aliases": [
+        "sterilisateur de table vapeur",
+        "sterilisateur de table"
+      ]
+    },
+    {
+      "canonical": "COMPRESSEUR AIR SANS HUILE",
+      "aliases": [
+        "compresseur air sans huile",
+        "compresseur silencieux sans huile"
+      ]
+    },
+    {
+      "canonical": "ADOUCISSEUR SIMPLEX",
+      "aliases": [
+        "adoucisseur simplex"
+      ]
+    }
+  ]
+}

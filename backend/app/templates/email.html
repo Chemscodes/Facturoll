@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Request</title>
+    <style>
+      body { font-family: Arial, sans-serif; color: #222; }
+      .container { max-width: 640px; margin: 0 auto; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+      .button { display: inline-block; padding: 10px 16px; background: #2d6cdf; color: #fff; text-decoration: none; border-radius: 4px; }
+      .footer { margin-top: 24px; font-size: 12px; color: #666; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Hello {{ supplier.name }},</p>
+      <div>
+        {{ message_html | safe }}
+      </div>
+
+      <h3>Requested products</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Requested Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.requested_qty if item.requested_qty is not none else '-' }} {{ item.product.unit or '' }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <p style="margin-top: 20px;">
+        <a class="button" href="{{ reply_url }}">Reply to request</a>
+      </p>
+
+      <div class="footer">
+        Do not reply to this email. Use the link above.<br />
+        Campaign code: {{ campaign_code }}
+      </div>
+    </div>
+  </body>
+</html>

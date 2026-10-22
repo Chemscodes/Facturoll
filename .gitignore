@@ -1,0 +1,60 @@
+# --- Secrets ---
+.env
+*.env
+!.env.example
+credentials.json
+google_sa.json
+gmail_token*.json
+mot de passe postgreSQL/
+*.pem
+*.key
+
+# --- Backups / dumps / donnees ---
+*.zip
+backup_*/
+_restore_tmp_*/
+pgdata_local/
+postgres_local.log
+backend/backups/
+backend/outbox/
+backend/invoices/
+backend/campaign_attachments/
+backend/logs/
+backend/reports/
+reports/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# --- Fichiers clients / exports ---
+*.xlsx
+*.pdf
+*.png
+!docs/**/*.png
+_fk_openapi.json
+qc
+query
+~$*
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+_tmp_diag*.py
+
+# --- Flutter / build ---
+build/
+desktop/build/
+desktop/.dart_tool/
+desktop/.idea/
+desktop/installer/output/
+desktop/installer/prerequisites/
+desktop/.git_old_backup/
+.flutter-plugins-dependencies
+
+# --- Divers ---
+phoneinfoga/
+.vscode/
+.idea/

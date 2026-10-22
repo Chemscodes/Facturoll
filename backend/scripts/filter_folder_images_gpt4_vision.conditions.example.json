@@ -1,0 +1,13 @@
+{
+  "min_rows": 1,
+  "min_confidence": 0.7,
+  "max_unassigned": 3,
+  "require_fields_any_row": ["name", "quantity"],
+  "matching_row": {
+    "name_contains_any": ["coton", "gaze", "tampon"],
+    "require_fields": ["name"],
+    "require_numeric_fields": ["quantity"],
+    "min_confidence": 0.7
+  },
+  "min_matching_rows": 1
+}

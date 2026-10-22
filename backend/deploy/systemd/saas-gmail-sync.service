@@ -1,0 +1,14 @@
+[Unit]
+Description=SAAS Gmail Sync (oneshot)
+After=network-online.target saas-backend.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=__RUN_USER__
+Group=__RUN_USER__
+WorkingDirectory=__BACKEND_DIR__
+EnvironmentFile=__BACKEND_DIR__/.env
+ExecStart=__PYTHON_BIN__ __BACKEND_DIR__/scripts/gmail_fetch.py
+StandardOutput=journal
+StandardError=journal

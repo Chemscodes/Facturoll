@@ -1,0 +1,13 @@
+{
+  "allowed_sector_tokens": [
+    "medical",
+    "médical",
+    "paramedical",
+    "paramédical",
+    "pharmaceutique",
+    "pharmaceutic"
+  ],
+  "max_financial_or_turnover_dzd": 27000000,
+  "min_eligible_lots": 1,
+  "require_lots_detected": false
+}

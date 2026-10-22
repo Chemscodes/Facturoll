@@ -1,0 +1,289 @@
+{
+  "key_synonyms": {
+    "debit": [
+      "debit",
+      "debitmetre",
+      "debit metre",
+      "l/min",
+      "lpm",
+      "flow",
+      "flow rate"
+    ],
+    "puissance": [
+      "puissance nominale",
+      "puissance absorbee",
+      "power",
+      "watt",
+      "consommation"
+    ],
+    "tension": [
+      "alim",
+      "alimentation electrique",
+      "voltage",
+      "input voltage"
+    ],
+    "frequence": [
+      "frequence",
+      "hz",
+      "frequency"
+    ],
+    "pression": [
+      "pression",
+      "pressure",
+      "bar"
+    ],
+    "temperature": [
+      "temperature",
+      "temp",
+      "working temperature"
+    ],
+    "capacite": [
+      "capacite",
+      "volume",
+      "cuve",
+      "tank capacity",
+      "volume utile"
+    ],
+    "poids": [
+      "poids",
+      "weight",
+      "net weight",
+      "gross weight"
+    ],
+    "dimensions": [
+      "dimensions",
+      "dim",
+      "size",
+      "lxhxp",
+      "l x h x p"
+    ],
+    "classe": [
+      "classe",
+      "class"
+    ],
+    "sterilite": [
+      "sterile",
+      "non sterile",
+      "single use",
+      "usage unique",
+      "autoclavable",
+      "eo",
+      "gamma"
+    ],
+    "matiere": [
+      "material",
+      "materiau",
+      "matiere",
+      "inox",
+      "stainless steel",
+      "pvc",
+      "polypropylene",
+      "polyethylene",
+      "latex free",
+      "sans latex"
+    ],
+    "conditionnement": [
+      "conditionnement",
+      "packaging",
+      "pack",
+      "box",
+      "boite",
+      "sachet",
+      "blister",
+      "carton",
+      "pcs"
+    ],
+    "reference": [
+      "ref",
+      "reference",
+      "sku",
+      "catalogue",
+      "model no",
+      "part number"
+    ],
+    "taille": [
+      "taille",
+      "size",
+      "diametre",
+      "calibre",
+      "gauge",
+      "fr",
+      "ch"
+    ],
+    "usage": [
+      "usage",
+      "utilisation",
+      "application",
+      "indication"
+    ]
+  },
+  "feature_terms": [
+    "double sortie",
+    "deux sortie",
+    "mural",
+    "sur roulette",
+    "avec tiroir",
+    "inox",
+    "chrome",
+    "portable",
+    "compact",
+    "professionnel",
+    "professionnelle",
+    "sans huile",
+    "avec humidificateur",
+    "avec nebuliseur",
+    "avec stethoscope",
+    "avec batterie",
+    "ecran led",
+    "ecran lcd",
+    "a pedale",
+    "a roulettes",
+    "double porte",
+    "tracabilite",
+    "carte sd",
+    "generateur vapeur"
+  ],
+  "embedding_prompts": {
+    "debit": "debit flux l min lpm flow rate sortie oxygene",
+    "matiere": "matiere material inox acier plastique silicone latex pvc",
+    "sterilite": "sterile non sterile usage unique autoclavable eo gamma",
+    "conditionnement": "conditionnement boite sachet blister pack lot carton pcs",
+    "taille": "taille gauge calibre diametre fr ch",
+    "usage": "usage indication application destination medical"
+  },
+  "regex_rules": [
+    {
+      "name": "debit_range_litres",
+      "key": "debit",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[/\\-]\\s*(\\d+(?:[.,]\\d+)?)\\s*l(?:itres?)?\\b",
+      "value_template": "{1}-{2} L"
+    },
+    {
+      "name": "debit_l_min_range",
+      "key": "debit",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[/\\-]\\s*(\\d+(?:[.,]\\d+)?)\\s*(?:l/min|lpm)\\b",
+      "value_template": "{1}-{2} L/min"
+    },
+    {
+      "name": "debit_l_min_single",
+      "key": "debit",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*(?:l/min|lpm)\\b",
+      "value_template": "{1} L/min"
+    },
+    {
+      "name": "voltage_inline",
+      "key": "tension",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*v\\b",
+      "value_template": "{1} V"
+    },
+    {
+      "name": "voltage_range",
+      "key": "tension",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[-/]\\s*(\\d+(?:[.,]\\d+)?)\\s*v\\b",
+      "value_template": "{1}-{2} V"
+    },
+    {
+      "name": "frequency_range",
+      "key": "frequence",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[-/]\\s*(\\d+(?:[.,]\\d+)?)\\s*hz\\b",
+      "value_template": "{1}-{2} Hz"
+    },
+    {
+      "name": "frequency_single",
+      "key": "frequence",
+      "pattern": "(?<![/\\-])\\b(\\d+(?:[.,]\\d+)?)\\s*hz\\b",
+      "value_template": "{1} Hz"
+    },
+    {
+      "name": "power_inline",
+      "key": "puissance",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*(kw|w)\\b",
+      "value_template": "{1} {2}"
+    },
+    {
+      "name": "pressure_bar",
+      "key": "pression",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*bar\\b",
+      "value_template": "{1} bar"
+    },
+    {
+      "name": "temperature_range",
+      "key": "temperature",
+      "pattern": "\\b([+-]?\\d+(?:[.,]\\d+)?)\\s*[-/]\\s*([+-]?\\d+(?:[.,]\\d+)?)\\s*(?:c|degc|degree c|\\u00b0c)\\b",
+      "value_template": "{1}-{2} C"
+    },
+    {
+      "name": "temperature_single",
+      "key": "temperature",
+      "pattern": "\\b([+-]?\\d+(?:[.,]\\d+)?)\\s*(?:c|degc|degree c|\\u00b0c)\\b",
+      "value_template": "{1} C"
+    },
+    {
+      "name": "capacity_l",
+      "key": "capacite",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*(?:l|litre|litres)\\b",
+      "value_template": "{1} L"
+    },
+    {
+      "name": "capacity_ml",
+      "key": "capacite",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*ml\\b",
+      "value_template": "{1} mL"
+    },
+    {
+      "name": "weight_kg",
+      "key": "poids",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*kg\\b",
+      "value_template": "{1} kg"
+    },
+    {
+      "name": "dimensions_3d",
+      "key": "dimensions",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[x\\u00d7*]\\s*(\\d+(?:[.,]\\d+)?)\\s*[x\\u00d7*]\\s*(\\d+(?:[.,]\\d+)?)\\s*(mm|cm|m)\\b",
+      "value_template": "{1} x {2} x {3} {4}"
+    },
+    {
+      "name": "dimensions_2d",
+      "key": "dimensions",
+      "pattern": "\\b(\\d+(?:[.,]\\d+)?)\\s*[x\\u00d7*]\\s*(\\d+(?:[.,]\\d+)?)\\s*(mm|cm|m)\\b",
+      "value_template": "{1} x {2} {3}"
+    },
+    {
+      "name": "class_token",
+      "key": "classe",
+      "pattern": "\\bclasse\\s*([a-z])\\b",
+      "value_template": "{1}"
+    },
+    {
+      "name": "gauge_g",
+      "key": "taille",
+      "pattern": "\\b(\\d{1,2}(?:[.,]\\d+)?)\\s*g\\b",
+      "value_template": "{1} G"
+    },
+    {
+      "name": "fr_ch",
+      "key": "taille",
+      "pattern": "\\b(\\d{1,3}(?:[.,]\\d+)?)\\s*(fr|ch)\\b",
+      "value_template": "{1} {2}"
+    },
+    {
+      "name": "pack_xqty",
+      "key": "conditionnement",
+      "pattern": "\\b(?:pack|lot|carton|boite|box|sachet|blister)\\s*(?:x|\\u00d7)?\\s*(\\d{1,5})\\b",
+      "value_template": "{1}"
+    },
+    {
+      "name": "pack_box_qty",
+      "key": "conditionnement",
+      "pattern": "\\b(?:boite|box|sachet|blister|pack|lot|carton)\\s*(?:de)?\\s*(\\d{1,5})\\b",
+      "value_template": "{1}"
+    },
+    {
+      "name": "reference_token",
+      "key": "reference",
+      "pattern": "\\b(?:ref|reference|sku|model\\s*no|part\\s*number)\\b\\s*[:#\\-]?\\s*([a-z0-9][a-z0-9_\\-./]{1,80})\\b",
+      "value_group": 1
+    }
+  ],
+  "row_family_tokens": {}
+}
